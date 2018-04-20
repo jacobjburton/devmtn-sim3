@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router';
-//import { withRouter } from 'react-router';
+import { connect } from 'react-redux';
+import getUser from '../../ducks/reducer';
 
-export default class Auth extends Component
+class Auth extends Component
 {
     constructor()
     {
@@ -11,10 +12,9 @@ export default class Auth extends Component
 
         this.state =
         {
-            username: '',
-            password: '',
             redirect: false,
-            
+            username: '',
+            password: ''
         }
 
         this.usernameInput = this.usernameInput.bind(this);
@@ -80,7 +80,7 @@ export default class Auth extends Component
 
     render()
     {
-        
+        //const { username, img } = this.props;
         
         const { redirect } = this.state;
         if (redirect)
@@ -100,3 +100,6 @@ export default class Auth extends Component
     } 
 
 }
+
+
+export default connect(null, {getUser})(Auth);

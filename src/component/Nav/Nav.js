@@ -18,7 +18,7 @@ function mapStateToProps(state)
     return (
     {
         username: state.username,
-       img: state.img
+        img: state.img
     });
 }
 
